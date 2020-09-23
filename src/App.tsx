@@ -1,7 +1,8 @@
 import * as React from "react";
-import "@elastic/eui/dist/eui_theme_light.css";
 import SideNav from "./components/SideNav";
 import TopNav from "./components/TopNav";
+import { Redirect, Route, Switch } from "react-router-dom";
+import Home from './components/Home';
 
 interface Props {}
 
@@ -15,20 +16,29 @@ const App: React.FC<Props> = (props) => {
 
   return (
     <div className="App">
-      <SideNav
-        setNavIsOpen={(isOpen: boolean) => setNavIsOpen(isOpen)}
-        setNavIsDocked={(isDocked: boolean) => setNavIsDocked(isDocked)}
-        navIsDocked={navIsDocked}
-        navIsOpen={navIsOpen}
-      />
-      <div>
-        <TopNav
-          setNavIsOpen={(isOpen: boolean) => setNavIsOpen(isOpen)}
-          setNavIsDocked={(isDocked: boolean) => setNavIsDocked(isDocked)}
-          navIsDocked={navIsDocked}
-          navIsOpen={navIsOpen}
-        />
-      </div>
+      <Route>
+        <Switch>
+          <Route>
+            <SideNav
+              setNavIsOpen={(isOpen: boolean) => setNavIsOpen(isOpen)}
+              setNavIsDocked={(isDocked: boolean) => setNavIsDocked(isDocked)}
+              navIsDocked={navIsDocked}
+              navIsOpen={navIsOpen}
+            />
+            <TopNav
+              setNavIsOpen={(isOpen: boolean) => setNavIsOpen(isOpen)}
+              setNavIsDocked={(isDocked: boolean) => setNavIsDocked(isDocked)}
+              navIsDocked={navIsDocked}
+              navIsOpen={navIsOpen}
+            />
+
+            <Route exact component={Home} path="/home" />
+            <Route path="*">
+              <Redirect to="/home" />
+            </Route>
+          </Route>
+        </Switch>
+      </Route>
     </div>
   );
 };

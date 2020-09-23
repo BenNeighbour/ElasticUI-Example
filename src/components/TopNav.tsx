@@ -40,18 +40,14 @@ const TopNav: React.FC<Props> = (props) => {
               </EuiHeaderSectionItemButton>
               <EuiHeaderLogo
                 iconType="logoElastic"
-                href="/"
+                href="/home"
                 aria-label="Goes to home"
               >
-                Elastic
+                ElasticUI
               </EuiHeaderLogo>
               ,
               <EuiHeaderLinks aria-label="App navigation dark theme example">
-                <EuiHeaderLink href="#" isActive>
-                  Docs
-                </EuiHeaderLink>
-
-                <EuiHeaderLink href="#">Code</EuiHeaderLink>
+                <EuiHeaderLink href="/home">Home</EuiHeaderLink>
 
                 <EuiHeaderLink iconType="help" href="#">
                   Help

@@ -67,7 +67,7 @@ const SideNav: React.FC<Props> = (props) => {
             <EuiListGroupItem
               size="xs"
               color="subdued"
-              label={`${props.navIsDocked ? "Undock" : "Dock"} navigation`}
+              label={`${props.navIsDocked ? "Undock" : "Dock"} Side Bar`}
               onClick={() => {
                 props.setNavIsDocked(!props.navIsDocked);
                 localStorage.setItem(
