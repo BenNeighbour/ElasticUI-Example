@@ -1,8 +1,9 @@
 import * as React from "react";
 import SideNav from "./components/SideNav";
 import TopNav from "./components/TopNav";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Home from './components/Home';
+import Tour from './components/Tour';
 
 interface Props {}
 
@@ -33,9 +34,7 @@ const App: React.FC<Props> = (props) => {
             />
 
             <Route exact component={Home} path="/home" />
-            <Route path="*">
-              <Redirect to="/home" />
-            </Route>
+            <Route exact component={Tour} path="/tour" />
           </Route>
         </Switch>
       </Route>
